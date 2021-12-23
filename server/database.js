@@ -53,7 +53,7 @@ exports.getUserWithId = getUserWithId;
  */
 const addUser = function (user) {
   const { name, email, password } = user;
-  pool
+  return pool
     .query(`INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING *;`,
       [name, email, password])
     .then(result => {
